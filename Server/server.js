@@ -16,8 +16,8 @@ app.post('/send-message', async (req, res) => {
 
   // Configure the email transporter
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
+    host: process.env.smtp.gmail.com,
+    port: process.env.587,
     secure: false,
     auth: {
       user: process.env.nayaksukanti999@gmail.com,
@@ -28,7 +28,7 @@ app.post('/send-message', async (req, res) => {
   // Email options
   const mailOptions = {
     from: `${name} <${email}>`,
-    to: process.env.RECEIVER_EMAIL,
+    to: process.env.receiver@example.com,
     subject: `Message from ${name}`,
     text: message,
   };
