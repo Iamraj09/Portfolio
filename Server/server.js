@@ -22,7 +22,7 @@ app.post('/send-message', async (req, res) => {
   const transporter = nodemailer.createTransport({
     host: process.env.smtp.gmail.com,
     port: process.env.587,
-    secure: false,
+    secure: true,
     auth: {
       user: process.env.nayaksukanti999@gmail.com,
       pass: process.env.idfk gxed calf hmlj,
