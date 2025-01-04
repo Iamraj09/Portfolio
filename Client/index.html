@@ -24,7 +24,7 @@
     <div class="container">
       <h2>About Me</h2>
       <p>
-        As the founder of the Replaceit clothing brand, I combine creativity and technical expertise to deliver high-quality apparel designs. With a strong foundation in Canva and other design tools, I have created over 1,000 unique T-shirt designs, including oversized styles. My contributions to Replaceit include designing its layout, banners, and visual elements, shaping the brand’s aesthetic identity. Alongside my creative endeavors, I am a skilled Full-Stack Java Developer with expertise in Python, MySQL, HTML, CSS, JavaScript, Spring Boot, and C.
+        As the founder of the Replaceit clothing brand, I combine creativity and technical expertise to deliver high-quality apparel designs. With a strong foundation in Canva and other design tools, I have created over 1,000 unique T-shirt designs, including oversized styles. Alongside my creative endeavors, I am a skilled Full-Stack Java Developer with expertise in Python, MySQL, HTML, CSS, JavaScript, and C.
       </p>
     </div>
   </section>
@@ -57,14 +57,21 @@
     </div>
   </section>
 
-      
+  <section class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form id="contact-form" method="POST" action="/send-message">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   </section>
 
   <footer>
     <div class="container">
       <p>&copy; 2025 Chandra Sekhar Nayak | All Rights Reserved</p>
-      <p>Contact: <a href="mailto:nayaksekhar222@gmail.com">nayaksekhar222@gmail.com</a></p>
     </div>
   </footer>
 </body>
