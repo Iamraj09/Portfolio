@@ -37,6 +37,11 @@ app.post('/send-message', async (req, res) => {
     text: message,
   };
 
+  const cors = require('cors');
+
+// Enable CORS for all origins (you can restrict this to specific domains later)
+app.use(cors());
+
   // Send the email
   try {
     await transporter.sendMail(mailOptions);
