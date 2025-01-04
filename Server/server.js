@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const path = require('path'); // To serve static files like success.html
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware to parse JSON and form data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Serve static files (like success.html)
+app.use(express.static(path.join(__dirname, 'client')));
 
 // Route to handle the contact form submission
 app.post('/send-message', async (req, res) => {
@@ -36,11 +40,17 @@ app.post('/send-message', async (req, res) => {
   // Send the email
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true, message: 'Email sent successfully!' });
+    // Redirect to the success page
+    res.sendFile(path.join(__dirname, 'client', 'success.html'));
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: 'Failed to send email.' });
   }
+});
+
+// Route to render the success page
+app.get('/success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'success.html'));
 });
 
 // Start the server
